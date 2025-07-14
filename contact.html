@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>Contact RUNWEAR - Vêtements de Sport Femme</title>
+    <meta
+      name="description"
+      content="Contactez RUNWEAR pour vos vêtements de sport femme. Ensemble de sport femme, conseils et support client. Nous sommes là pour vous aider."
+    />
+    <meta
+      name="keywords"
+      content="contact RUNWEAR, vêtements de sport femme, support client, ensemble de sport femme"
+    />
+    <meta name="author" content="RUNWEAR" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact RUNWEAR" />
+    <meta
+      property="og:description"
+      content="Contactez notre équipe pour vos vêtements de sport femme"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://runwear.com/contact" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Données structurées JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact RUNWEAR",
+        "description": "Page de contact pour les vêtements de sport femme RUNWEAR",
+        "url": "https://runwear.com/contact",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "RUNWEAR",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "contact@runwear.com",
+            "telephone": "+33123456789",
+            "availableLanguage": "French"
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <a href="index.html">
+              <h1>RUNWEAR</h1>
+            </a>
+          </div>
+
+          <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li><a href="catalogue.html" class="nav-link">Catalogue</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          </ul>
+
+          <div class="nav-cart">
+            <a href="panier.html" class="cart-icon">
+              <span class="cart-count" id="cartCount">0</span>
+              🛒
+            </a>
+          </div>
+
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Contact Header -->
+      <section class="contact-header">
+        <div class="container">
+          <h2>Contactez-nous</h2>
+          <p>
+            Notre équipe est là pour vous accompagner dans vos achats de
+            vêtements de sport femme
+          </p>
+          <nav class="breadcrumb">
+            <a href="index.html">Accueil</a> >
+            <span>Contact</span>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Contact Content -->
+      <section class="contact-content">
+        <div class="container">
+          <div class="contact-layout">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+              <div class="form-card">
+                <h3>Envoyez-nous un message</h3>
+                <p>
+                  Remplissez le formulaire ci-dessous et nous vous répondrons
+                  dans les plus brefs délais.
+                </p>
+
+                <form id="contactForm" class="contact-form" novalidate>
+                  <div class="form-group">
+                    <label for="firstName">Prénom *</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                    />
+                    <span class="error-message" id="firstNameError"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastName">Nom *</label>
+                    <input type="text" id="lastName" name="lastName" required />
+                    <span class="error-message" id="lastNameError"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required />
+                    <span class="error-message" id="emailError"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" />
+                    <span class="error-message" id="phoneError"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="subject">Sujet *</label>
+                    <select id="subject" name="subject" required>
+                      <option value="">Choisissez un sujet</option>
+                      <option value="commande">
+                        Question sur une commande
+                      </option>
+                      <option value="produit">Information produit</option>
+                      <option value="retour">Retour/Échange</option>
+                      <option value="livraison">Livraison</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                    <span class="error-message" id="subjectError"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      required
+                      placeholder="Décrivez votre demande..."
+                    ></textarea>
+                    <span class="error-message" id="messageError"></span>
+                  </div>
+
+                  <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                      <input
+                        type="checkbox"
+                        id="newsletter"
+                        name="newsletter"
+                      />
+                      <span class="checkmark"></span>
+                      Je souhaite recevoir la newsletter RUNWEAR
+                    </label>
+                  </div>
+
+                  <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                      <input
+                        type="checkbox"
+                        id="privacy"
+                        name="privacy"
+                        required
+                      />
+                      <span class="checkmark"></span>
+                      J'accepte la
+                      <a href="#" target="_blank"
+                        >politique de confidentialité</a
+                      >
+                      *
+                    </label>
+                    <span class="error-message" id="privacyError"></span>
+                  </div>
+
+                  <button type="submit" class="submit-btn">
+                    <span class="btn-text">Envoyer le message</span>
+                    <span class="btn-loading" style="display: none"
+                      >Envoi en cours...</span
+                    >
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-section">
+              <div class="info-card">
+                <h3>Informations de contact</h3>
+
+                <div class="contact-info-item">
+                  <div class="contact-icon">📧</div>
+                  <div class="contact-details">
+                    <h4>Email</h4>
+                    <p>contact@runwear.com</p>
+                    <p>Réponse sous 24h</p>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="contact-icon">📞</div>
+                  <div class="contact-details">
+                    <h4>Téléphone</h4>
+                    <p>01 23 45 67 89</p>
+                    <p>Lun-Ven: 9h-18h</p>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="contact-icon">📍</div>
+                  <div class="contact-details">
+                    <h4>Adresse</h4>
+                    <p>123 Rue du Sport<br />75001 Paris, France</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-card">
+                <h3>Questions fréquentes</h3>
+
+                <div class="faq-item">
+                  <h4>Comment retourner un article ?</h4>
+                  <p>
+                    Vous disposez de 30 jours pour retourner votre article.
+                    Contactez-nous pour initier le retour.
+                  </p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>Délais de livraison ?</h4>
+                  <p>
+                    Livraison gratuite dès 50€ d'achat. Délai moyen : 2-3 jours
+                    ouvrés.
+                  </p>
+                </div>
+
+                <div class="faq-item">
+                  <h4>Tailles disponibles ?</h4>
+                  <p>
+                    Nos vêtements sont disponibles du XS au XXL. Consultez notre
+                    guide des tailles.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>RUNWEAR</h4>
+            <p>Vêtements de sport tendance pour femmes</p>
+          </div>
+          <div class="footer-section">
+            <h4>Liens Utiles</h4>
+            <ul>
+              <li><a href="catalogue.html">Catalogue</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="panier.html">Panier</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@runwear.com</p>
+            <p>Tél: 01 23 45 67 89</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 RUNWEAR. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script>
+      // Validation du formulaire de contact
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
+        const submitBtn = form.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+
+        // Fonction de validation des champs
+        function validateField(field, errorElement, validationRules) {
+          const value = field.value.trim();
+          let isValid = true;
+          let errorMessage = '';
+
+          // Validation selon les règles
+          if (validationRules.required && !value) {
+            isValid = false;
+            errorMessage = 'Ce champ est obligatoire';
+          } else if (value) {
+            if (validationRules.email && !isValidEmail(value)) {
+              isValid = false;
+              errorMessage = "Format d'email invalide";
+            } else if (validationRules.phone && !isValidPhone(value)) {
+              isValid = false;
+              errorMessage = 'Format de téléphone invalide';
+            } else if (
+              validationRules.minLength &&
+              value.length < validationRules.minLength
+            ) {
+              isValid = false;
+              errorMessage = `Minimum ${validationRules.minLength} caractères`;
+            }
+          }
+
+          // Affichage de l'erreur
+          if (!isValid) {
+            field.classList.add('error');
+            errorElement.textContent = errorMessage;
+          } else {
+            field.classList.remove('error');
+            errorElement.textContent = '';
+          }
+
+          return isValid;
+        }
+
+        // Validation email
+        function isValidEmail(email) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return emailRegex.test(email);
+        }
+
+        // Validation téléphone
+        function isValidPhone(phone) {
+          const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
+          return phoneRegex.test(phone);
+        }
+
+        // Validation en temps réel
+        const fields = {
+          firstName: { required: true, minLength: 2 },
+          lastName: { required: true, minLength: 2 },
+          email: { required: true, email: true },
+          phone: { phone: true },
+          subject: { required: true },
+          message: { required: true, minLength: 10 },
+        };
+
+        Object.keys(fields).forEach((fieldName) => {
+          const field = document.getElementById(fieldName);
+          const errorElement = document.getElementById(fieldName + 'Error');
+
+          field.addEventListener('blur', () => {
+            validateField(field, errorElement, fields[fieldName]);
+          });
+
+          field.addEventListener('input', () => {
+            if (field.classList.contains('error')) {
+              validateField(field, errorElement, fields[fieldName]);
+            }
+          });
+        });
+
+        // Validation de la checkbox privacy
+        const privacyCheckbox = document.getElementById('privacy');
+        const privacyError = document.getElementById('privacyError');
+
+        privacyCheckbox.addEventListener('change', () => {
+          if (!privacyCheckbox.checked) {
+            privacyError.textContent =
+              'Vous devez accepter la politique de confidentialité';
+          } else {
+            privacyError.textContent = '';
+          }
+        });
+
+        // Soumission du formulaire
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          // Validation de tous les champs
+          let isFormValid = true;
+
+          Object.keys(fields).forEach((fieldName) => {
+            const field = document.getElementById(fieldName);
+            const errorElement = document.getElementById(fieldName + 'Error');
+            const fieldValid = validateField(
+              field,
+              errorElement,
+              fields[fieldName]
+            );
+            if (!fieldValid) isFormValid = false;
+          });
+
+          // Validation de la checkbox privacy
+          if (!privacyCheckbox.checked) {
+            privacyError.textContent =
+              'Vous devez accepter la politique de confidentialité';
+            isFormValid = false;
+          }
+
+          if (isFormValid) {
+            // Simulation d'envoi
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+              // Réinitialisation du formulaire
+              form.reset();
+
+              // Message de succès
+              alert(
+                'Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.'
+              );
+
+              // Réinitialisation du bouton
+              btnText.style.display = 'inline';
+              btnLoading.style.display = 'none';
+              submitBtn.disabled = false;
+            }, 2000);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

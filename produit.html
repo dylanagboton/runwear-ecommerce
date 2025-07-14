@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title id="pageTitle">Produit RUNWEAR - Vêtements de Sport Femme</title>
+    <meta
+      name="description"
+      id="pageDescription"
+      content="Découvrez nos vêtements de sport femme RUNWEAR. Ensemble de sport femme tendance et confortable."
+    />
+    <meta
+      name="keywords"
+      content="ensemble de sport femme, vêtements de sport femme, RUNWEAR"
+    />
+    <meta name="author" content="RUNWEAR" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" id="ogTitle" content="Produit RUNWEAR" />
+    <meta
+      property="og:description"
+      id="ogDescription"
+      content="Vêtements de sport femme RUNWEAR"
+    />
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="https://runwear.com/produit.html" />
+    <meta property="og:image" id="ogImage" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-container">
+          <div class="logo">
+            <a href="index.html">
+              <h1>RUNWEAR</h1>
+            </a>
+          </div>
+
+          <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li><a href="catalogue.html" class="nav-link">Catalogue</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+
+          <div class="nav-cart">
+            <a href="panier.html" class="cart-icon">
+              <span class="cart-count" id="cartCount">0</span>
+              🛒
+            </a>
+          </div>
+
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Product Detail Section -->
+      <section class="product-detail">
+        <div class="container">
+          <div class="product-detail-grid">
+            <!-- Product Image -->
+            <div class="product-image-section">
+              <div class="product-image-main">
+                <img id="productImage" src="" alt="" loading="lazy" />
+              </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info-section">
+              <nav class="breadcrumb">
+                <a href="index.html">Accueil</a> >
+                <a href="catalogue.html">Catalogue</a> >
+                <span id="breadcrumbProduct">Produit</span>
+              </nav>
+
+              <h1 id="productTitle">Chargement...</h1>
+              <p class="product-price" id="productPrice">Chargement...</p>
+
+              <div class="product-description">
+                <p id="productDescription">Chargement...</p>
+              </div>
+
+              <div class="product-features">
+                <h3>Caractéristiques</h3>
+                <ul>
+                  <li>✅ Matériau stretch confortable</li>
+                  <li>✅ Respiration optimale</li>
+                  <li>✅ Séchage rapide</li>
+                  <li>✅ Protection UV</li>
+                  <li>✅ Lavable en machine</li>
+                </ul>
+              </div>
+
+              <div class="product-actions">
+                <div class="quantity-selector">
+                  <label for="quantity">Quantité:</label>
+                  <select id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+
+                <button
+                  class="add-to-cart-btn-large"
+                  id="addToCartBtn"
+                  onclick="addToCartFromDetail()"
+                >
+                  Ajouter au Panier
+                </button>
+
+                <a href="catalogue.html" class="secondary-button"
+                  >Retour au Catalogue</a
+                >
+              </div>
+
+              <div class="product-benefits">
+                <div class="benefit-item">
+                  <span class="benefit-icon">🚚</span>
+                  <span>Livraison gratuite dès 50€</span>
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-icon">↩️</span>
+                  <span>Retours sous 30 jours</span>
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-icon">🔒</span>
+                  <span>Paiement sécurisé</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Products -->
+      <section class="related-products">
+        <div class="container">
+          <h3>Produits Similaires</h3>
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="https://source.unsplash.com/400x500/?sportswear+woman+fitness"
+                  alt="Ensemble stretch bleu ciel"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-info">
+                <h4>Ensemble Stretch Bleu Ciel</h4>
+                <p class="price">49,99 €</p>
+                <a href="produit.html?id=1" class="product-link"
+                  >Voir le produit</a
+                >
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="https://source.unsplash.com/400x500/?fitness+outfit+female"
+                  alt="Set noir performance"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-info">
+                <h4>Set Noir Performance</h4>
+                <p class="price">59,99 €</p>
+                <a href="produit.html?id=2" class="product-link"
+                  >Voir le produit</a
+                >
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="https://source.unsplash.com/400x500/?athletic+wear+women"
+                  alt="Ensemble rose pastel"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-info">
+                <h4>Ensemble Rose Pastel</h4>
+                <p class="price">44,99 €</p>
+                <a href="produit.html?id=3" class="product-link"
+                  >Voir le produit</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>RUNWEAR</h4>
+            <p>Vêtements de sport tendance pour femmes</p>
+          </div>
+          <div class="footer-section">
+            <h4>Liens Utiles</h4>
+            <ul>
+              <li><a href="catalogue.html">Catalogue</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="panier.html">Panier</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@runwear.com</p>
+            <p>Tél: 01 23 45 67 89</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 RUNWEAR. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Product Data -->
+    <script>
+      // Base de données des produits
+      const products = {
+        1: {
+          id: 1,
+          name: 'Ensemble Stretch Bleu Ciel',
+          price: 49.99,
+          image:
+            'https://source.unsplash.com/400x500/?sportswear+woman+fitness',
+          description:
+            "Ensemble de sport femme stretch bleu ciel, parfait pour vos séances de fitness. Matériau respirant et confortable qui s'adapte à tous vos mouvements.",
+          category: 'Fitness',
+        },
+        2: {
+          id: 2,
+          name: 'Set Noir Performance',
+          price: 59.99,
+          image: 'https://source.unsplash.com/400x500/?fitness+outfit+female',
+          description:
+            'Set de sport femme noir performance, idéal pour les entraînements intensifs. Design moderne et fonctionnel pour un maximum de confort.',
+          category: 'Performance',
+        },
+        3: {
+          id: 3,
+          name: 'Ensemble Rose Pastel',
+          price: 44.99,
+          image: 'https://source.unsplash.com/400x500/?athletic+wear+women',
+          description:
+            'Ensemble de sport femme rose pastel, élégant et confortable. Parfait pour le yoga et les activités douces.',
+          category: 'Yoga',
+        },
+        4: {
+          id: 4,
+          name: 'Ensemble Gris Zip',
+          price: 54.99,
+          image: 'https://source.unsplash.com/400x500/?workout+clothes+women',
+          description:
+            'Ensemble de sport femme gris avec zip, pratique et stylé. Idéal pour les séances de musculation et de crossfit.',
+          category: 'Musculation',
+        },
+        5: {
+          id: 5,
+          name: 'Ensemble Violet Training',
+          price: 49.99,
+          image: 'https://source.unsplash.com/400x500/?training+outfit+women',
+          description:
+            "Ensemble de sport femme violet training, dynamique et confortable. Parfait pour tous types d'entraînements.",
+          category: 'Training',
+        },
+        6: {
+          id: 6,
+          name: 'Ensemble Vert Zen',
+          price: 39.99,
+          image: 'https://source.unsplash.com/400x500/?yoga+outfit+women',
+          description:
+            'Ensemble de sport femme vert zen, apaisant et confortable. Idéal pour le yoga et la méditation.',
+          category: 'Zen',
+        },
+      };
+
+      // Fonction pour charger les données du produit
+      function loadProduct() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        if (productId && products[productId]) {
+          const product = products[productId];
+
+          // Mise à jour du contenu
+          document.getElementById('productTitle').textContent = product.name;
+          document.getElementById('productPrice').textContent =
+            product.price + ' €';
+          document.getElementById('productDescription').textContent =
+            product.description;
+          document.getElementById('productImage').src = product.image;
+          document.getElementById('productImage').alt = product.name;
+          document.getElementById('breadcrumbProduct').textContent =
+            product.name;
+
+          // Mise à jour SEO
+          document.getElementById('pageTitle').textContent =
+            product.name + ' - RUNWEAR | Vêtements de Sport Femme';
+          document.getElementById('pageDescription').textContent =
+            product.description;
+          document.getElementById('ogTitle').content =
+            product.name + ' - RUNWEAR';
+          document.getElementById('ogDescription').content =
+            product.description;
+          document.getElementById('ogImage').content = product.image;
+
+          // Données structurées JSON-LD
+          const structuredData = {
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: product.name,
+            description: product.description,
+            image: product.image,
+            offers: {
+              '@type': 'Offer',
+              price: product.price,
+              priceCurrency: 'EUR',
+              availability: 'https://schema.org/InStock',
+            },
+            brand: {
+              '@type': 'Brand',
+              name: 'RUNWEAR',
+            },
+            category: product.category,
+          };
+
+          // Supprimer l'ancien script s'il existe
+          const oldScript = document.querySelector('script[data-structured]');
+          if (oldScript) {
+            oldScript.remove();
+          }
+
+          // Ajouter le nouveau script
+          const script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.textContent = JSON.stringify(structuredData);
+          script.setAttribute('data-structured', 'true');
+          document.head.appendChild(script);
+        } else {
+          // Produit non trouvé
+          document.getElementById('productTitle').textContent =
+            'Produit non trouvé';
+          document.getElementById('productPrice').textContent = '';
+          document.getElementById('productDescription').textContent =
+            "Le produit demandé n'existe pas.";
+        }
+      }
+
+      // Fonction pour ajouter au panier depuis la page détail
+      function addToCartFromDetail() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        const quantity = parseInt(document.getElementById('quantity').value);
+
+        if (productId && products[productId]) {
+          const product = products[productId];
+          addToCart(
+            product.id,
+            product.name,
+            product.price,
+            product.image,
+            quantity
+          );
+
+          // Feedback utilisateur
+          const btn = document.getElementById('addToCartBtn');
+          const originalText = btn.textContent;
+          btn.textContent = 'Ajouté !';
+          btn.style.backgroundColor = '#28a745';
+
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.backgroundColor = '';
+          }, 2000);
+        }
+      }
+
+      // Charger le produit au chargement de la page
+      document.addEventListener('DOMContentLoaded', loadProduct);
+    </script>
+  </body>
+</html>

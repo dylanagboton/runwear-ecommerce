@@ -1,0 +1,90 @@
+# Robots.txt pour RUNWEAR - Site E-commerce Vêtements de Sport Femme
+# https://runwear.com
+
+# Autoriser tous les robots d'exploration
+User-agent: *
+
+# Autoriser l'exploration de toutes les pages
+Allow: /
+
+# Pages importantes à explorer en priorité
+Allow: /index.html
+Allow: /catalogue.html
+Allow: /produit.html
+Allow: /contact.html
+
+# Empêcher l'exploration des pages non pertinentes pour SEO
+Disallow: /panier.html
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cache/
+
+# Empêcher l'exploration des fichiers techniques
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.png$
+Disallow: /*.jpg$
+Disallow: /*.gif$
+Disallow: /*.svg$
+Disallow: /*.ico$
+
+# Sitemap XML
+Sitemap: https://runwear.com/sitemap.xml
+
+# Temps d'attente entre les requêtes (en secondes)
+Crawl-delay: 1
+
+# Règles spécifiques pour Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Règles spécifiques pour Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Règles pour les robots de réseaux sociaux
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Empêcher l'exploration par les robots de spam
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Règles pour les robots de recherche d'images
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+
+# Règles pour les robots de recherche mobile
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Règles pour les robots de recherche de vidéos
+User-agent: Googlebot-Video
+Disallow: /
+
+# Règles pour les robots de recherche de news
+User-agent: Googlebot-News
+Disallow: / 
