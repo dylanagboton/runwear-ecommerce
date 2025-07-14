@@ -526,3 +526,352 @@ window.trackEvent = trackEvent;
 window.trackAddToCart = trackAddToCart;
 window.formatPrice = formatPrice;
 window.isMobile = isMobile;
+
+// ===== AMÉLIORATIONS RESPONSIVE ET MOBILE =====
+
+/**
+ * Détecte si l'appareil est tactile
+ * @returns {boolean} - True si l'appareil est tactile
+ */
+function isTouchDevice() {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+/**
+ * Optimise l'expérience tactile
+ */
+function optimizeTouchExperience() {
+  if (isTouchDevice()) {
+    // Ajouter des classes CSS pour les appareils tactiles
+    document.body.classList.add('touch-device');
+
+    // Améliorer les interactions tactiles
+    const touchElements = document.querySelectorAll(
+      '.product-card, .add-to-cart-btn, .nav-link'
+    );
+    touchElements.forEach((element) => {
+      element.addEventListener('touchstart', function () {
+        this.style.transform = 'scale(0.98)';
+      });
+
+      element.addEventListener('touchend', function () {
+        this.style.transform = '';
+      });
+    });
+  }
+}
+
+/**
+ * Gère l'orientation de l'écran
+ */
+function handleOrientation() {
+  const handleOrientationChange = () => {
+    const isLandscape = window.innerWidth > window.innerHeight;
+    document.body.classList.toggle('landscape', isLandscape);
+
+    // Ajuster la navigation mobile en mode paysage
+    if (isLandscape && isMobile()) {
+      const navMenu = document.querySelector('.nav-menu');
+      const hamburger = document.querySelector('.hamburger');
+      if (navMenu && hamburger) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    }
+  };
+
+  window.addEventListener('orientationchange', handleOrientationChange);
+  window.addEventListener('resize', debounce(handleOrientationChange, 250));
+
+  // Appel initial
+  handleOrientationChange();
+}
+
+/**
+ * Améliore la navigation mobile
+ */
+function enhanceMobileNavigation() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+
+  if (hamburger && navMenu) {
+    // Fermer le menu en cliquant à l'extérieur
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      }
+    });
+
+    // Fermer le menu en appuyant sur Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      }
+    });
+
+    // Améliorer l'accessibilité
+    hamburger.setAttribute('aria-label', 'Menu de navigation');
+    hamburger.setAttribute('aria-expanded', 'false');
+
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.classList.contains('active');
+      hamburger.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+    });
+  }
+}
+
+/**
+ * Optimise les images pour mobile
+ */
+function optimizeImagesForMobile() {
+  const images = document.querySelectorAll('img[src*="unsplash"]');
+
+  images.forEach((img) => {
+    // Ajouter des attributs pour le lazy loading
+    if (!img.hasAttribute('loading')) {
+      img.setAttribute('loading', 'lazy');
+    }
+
+    // Optimiser les images pour mobile
+    if (isMobile()) {
+      const originalSrc = img.src;
+      // Ajouter des paramètres pour des images plus petites sur mobile
+      if (!originalSrc.includes('w=')) {
+        img.src = originalSrc + '&w=400&q=80';
+      }
+    }
+  });
+}
+
+/**
+ * Améliore l'expérience de scroll sur mobile
+ */
+function enhanceMobileScroll() {
+  if (isMobile()) {
+    // Améliorer le scroll fluide
+    const smoothScrollElements = document.querySelectorAll('a[href^="#"]');
+    smoothScrollElements.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+        }
+      });
+    });
+
+    // Optimiser le scroll pour les listes de produits
+    const productGrids = document.querySelectorAll('.products-grid');
+    productGrids.forEach((grid) => {
+      grid.style.scrollSnapType = 'x mandatory';
+      grid.style.overflowX = 'auto';
+      grid.style.webkitOverflowScrolling = 'touch';
+    });
+  }
+}
+
+/**
+ * Améliore l'expérience du panier sur mobile
+ */
+function enhanceMobileCart() {
+  if (isMobile()) {
+    // Ajouter des gestes de swipe pour supprimer des articles
+    const cartItems = document.querySelectorAll('.cart-item');
+    cartItems.forEach((item) => {
+      let startX = 0;
+      let currentX = 0;
+
+      item.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      item.addEventListener('touchmove', (e) => {
+        currentX = e.touches[0].clientX;
+        const diff = startX - currentX;
+
+        if (diff > 50) {
+          // Swipe vers la gauche
+          item.style.transform = `translateX(-${Math.min(diff, 100)}px)`;
+        }
+      });
+
+      item.addEventListener('touchend', (e) => {
+        const diff = startX - currentX;
+
+        if (diff > 100) {
+          // Swipe suffisant pour supprimer
+          // Afficher une confirmation
+          if (confirm('Supprimer cet article du panier ?')) {
+            const removeBtn = item.querySelector('.remove-btn');
+            if (removeBtn) {
+              removeBtn.click();
+            }
+          }
+        }
+
+        item.style.transform = '';
+      });
+    });
+  }
+}
+
+/**
+ * Améliore l'expérience des formulaires sur mobile
+ */
+function enhanceMobileForms() {
+  if (isMobile()) {
+    // Prévenir le zoom sur les champs de saisie
+    const inputs = document.querySelectorAll('input, select, textarea');
+    inputs.forEach((input) => {
+      input.addEventListener('focus', () => {
+        // Ajouter un délai pour éviter le zoom
+        setTimeout(() => {
+          input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      });
+    });
+
+    // Améliorer les sélecteurs de quantité
+    const quantitySelectors = document.querySelectorAll(
+      '.quantity-selector select'
+    );
+    quantitySelectors.forEach((select) => {
+      select.addEventListener('change', () => {
+        // Feedback visuel
+        select.style.backgroundColor = '#e0f2fe';
+        setTimeout(() => {
+          select.style.backgroundColor = '';
+        }, 200);
+      });
+    });
+  }
+}
+
+/**
+ * Optimise les performances sur mobile
+ */
+function optimizeMobilePerformance() {
+  if (isMobile()) {
+    // Réduire les animations sur mobile
+    document.documentElement.style.setProperty('--transition', 'all 0.2s ease');
+
+    // Désactiver certaines animations lourdes
+    const heavyAnimations = document.querySelectorAll(
+      '.product-card, .benefit'
+    );
+    heavyAnimations.forEach((element) => {
+      element.style.animation = 'none';
+    });
+
+    // Optimiser les images
+    const images = document.querySelectorAll('img');
+    images.forEach((img) => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+    });
+  }
+}
+
+/**
+ * Améliore l'accessibilité mobile
+ */
+function enhanceMobileAccessibility() {
+  // Améliorer la navigation au clavier
+  const focusableElements = document.querySelectorAll(
+    'button, a, input, select, textarea'
+  );
+  focusableElements.forEach((element) => {
+    element.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        element.click();
+      }
+    });
+  });
+
+  // Améliorer les contrastes sur mobile
+  if (isMobile()) {
+    document.documentElement.style.setProperty('--text-color', '#1a1a1a');
+    document.documentElement.style.setProperty('--border-color', '#d1d5db');
+  }
+}
+
+// ===== INITIALISATION DES AMÉLIORATIONS MOBILE =====
+
+/**
+ * Initialise toutes les améliorations responsive et mobile
+ */
+function initResponsiveEnhancements() {
+  optimizeTouchExperience();
+  handleOrientation();
+  enhanceMobileNavigation();
+  optimizeImagesForMobile();
+  enhanceMobileScroll();
+  enhanceMobileCart();
+  enhanceMobileForms();
+  optimizeMobilePerformance();
+  enhanceMobileAccessibility();
+
+  console.log('🚀 Améliorations responsive et mobile initialisées');
+}
+
+// ===== ÉVÉNEMENTS RESPONSIVE =====
+
+// Initialiser les améliorations au chargement
+document.addEventListener('DOMContentLoaded', initResponsiveEnhancements);
+
+// Réinitialiser lors du changement d'orientation
+window.addEventListener('orientationchange', () => {
+  setTimeout(initResponsiveEnhancements, 100);
+});
+
+// Optimiser lors du redimensionnement
+window.addEventListener(
+  'resize',
+  debounce(() => {
+    optimizeMobilePerformance();
+    handleOrientation();
+  }, 250)
+);
+
+// ===== GESTION DES ERREURS MOBILE =====
+
+/**
+ * Gestionnaire d'erreurs spécifique mobile
+ */
+function handleMobileErrors() {
+  window.addEventListener('error', (event) => {
+    if (isMobile()) {
+      console.error('Erreur mobile:', event.error);
+
+      // Afficher une notification d'erreur adaptée
+      showNotification('Une erreur est survenue. Veuillez réessayer.', 'error');
+    }
+  });
+}
+
+// Initialiser la gestion d'erreurs mobile
+handleMobileErrors();
+
+// ===== EXPORT DES NOUVELLES FONCTIONS =====
+
+// Exposer les nouvelles fonctions globalement
+window.isTouchDevice = isTouchDevice;
+window.optimizeTouchExperience = optimizeTouchExperience;
+window.handleOrientation = handleOrientation;
+window.enhanceMobileNavigation = enhanceMobileNavigation;
+window.optimizeImagesForMobile = optimizeImagesForMobile;
+window.enhanceMobileScroll = enhanceMobileScroll;
+window.enhanceMobileCart = enhanceMobileCart;
+window.enhanceMobileForms = enhanceMobileForms;
+window.optimizeMobilePerformance = optimizeMobilePerformance;
+window.enhanceMobileAccessibility = enhanceMobileAccessibility;
+window.initResponsiveEnhancements = initResponsiveEnhancements;
