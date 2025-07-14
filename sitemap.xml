@@ -50,25 +50,6 @@
         <priority>0.8</priority>
     </url>
 
-    <url>
-        <loc>https://runwear.com/produit.html?id=4</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
 
-    <url>
-        <loc>https://runwear.com/produit.html?id=5</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
-        <loc>https://runwear.com/produit.html?id=6</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
 
 </urlset> 

@@ -37,14 +37,11 @@ keyiah/
 
 ## 🛍️ Catalogue de Produits
 
-Le site propose **6 ensembles de sport pour femmes** :
+Le site propose **3 ensembles de sport pour femmes** :
 
-1. **Ensemble Stretch Bleu Ciel** - 49,99 €
-2. **Set Noir Performance** - 59,99 €
-3. **Ensemble Rose Pastel** - 44,99 €
-4. **Ensemble Gris Zip** - 54,99 €
-5. **Ensemble Violet Training** - 49,99 €
-6. **Ensemble Vert Zen** - 39,99 €
+1. **Ensemble Bleu-Gris Yoga** - 49,99 €
+2. **Ensemble Noir Fitness** - 59,99 €
+3. **Ensemble Camel Fitness** - 44,99 €
 
 ## 🚀 Fonctionnalités
 
